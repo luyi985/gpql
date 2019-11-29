@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "nodemon --inspect src/index.ts",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.1",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.6.2"
+  },
+  "dependencies": {
+    "@types/dotenv": "^6.1.1",
+    "apollo-server": "^2.9.12",
+    "dotenv": "^8.1.0",
+    "graphql": "^14.5.8"
+  }
+}
