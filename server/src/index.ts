@@ -1,15 +1,32 @@
 import './config';
 import { ApolloServer, gql } from 'apollo-server';
+import { find, filter } from 'lodash';
+
 const typeDefs = gql`
 	type Book {
-		
 		title: String
 		author: String
 	}
-	type Query {
+
+	type Author {
 		books: [Book]
 	}
+	type Query {
+		books: [Book]
+		author(id: Int): Author
+	}
 `;
+
+const authors = [
+	{
+		id: 1,
+		author: 'J.K. Rowling',
+	},
+	{
+		id: 2,
+		author: 'Michael Crichton',
+	},
+];
 const books = [
 	{
 		title: 'Harry Potter and the Chamber of Secrets',
@@ -23,6 +40,14 @@ const books = [
 const resolvers = {
 	Query: {
 		books: () => books,
+		author: (parent: any, args: any, context: any, info: any) => {
+			return find(authors, { id: args.id });
+		},
+	},
+	Author: {
+		books(parent: any, args: any, context: any, info: any) {
+			return filter(books, { author: parent.author });
+		},
 	},
 };
 
