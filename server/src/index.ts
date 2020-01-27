@@ -1,6 +1,7 @@
 import './config';
 import { ApolloServer, gql } from 'apollo-server';
 import { find, filter } from 'lodash';
+import './core/USER'
 
 const typeDefs = gql`
 	type Book {
@@ -20,7 +21,7 @@ const typeDefs = gql`
 const authors = [
 	{
 		id: 1,
-		author: 'J.K. Rowling',
+		authorn: 'J.K. Rowling',
 	},
 	{
 		id: 2,
